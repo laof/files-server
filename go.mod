@@ -10,6 +10,7 @@ require (
 	github.com/gomodule/redigo v1.8.4 // indirect
 	github.com/googollee/go-socket.io v1.6.1 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/karrick/godirwalk v1.15.8 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/laof/goport v0.0.1 // indirect
