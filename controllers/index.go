@@ -48,8 +48,8 @@ func (h *NotFoundHttpServe) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func Home(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	_, cke := r.Cookie("fs")
-	if cke != nil {
+	_, err := r.Cookie("fs")
+	if err != nil {
 		ck := &http.Cookie{
 			Name:     "fs",
 			Value:    strconv.FormatInt(time.Now().UnixNano(), 10),

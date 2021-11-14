@@ -19,7 +19,7 @@ func Router() *httprouter.Router {
 
 	// r.GET("/index.html", controllers.IndexFiles)
 
-	r.GET("/socket.io/*any", controllers.WebsocketServer)
+	r.GET("/api/chat", controllers.ChatServer)
 
 	r.NotFound = new(controllers.NotFoundHttpServe)
 
