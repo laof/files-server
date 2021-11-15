@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
-	"files-server/libs"
+	"files-server/utils"
 	"log"
 	"net/http"
 	"time"
@@ -26,7 +26,7 @@ type Client struct {
 func (client *Client) sendMessage(m Message) error {
 	mt := client.mt
 	e := BroadcastMessage{Chat, m}
-	return client.conn.WriteMessage(mt, libs.JsonData(e))
+	return client.conn.WriteMessage(mt, utils.JsonData(e))
 }
 
 type BroadcastMessage struct {
@@ -188,5 +188,5 @@ type historyDataType struct {
 func GetTakHistory(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	data := historyDataType{talkList, true}
-	w.Write(libs.JsonData(data))
+	w.Write(utils.JsonData(data))
 }

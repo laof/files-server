@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"files-server/libs"
 	"files-server/models"
+	"files-server/utils"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -15,5 +15,5 @@ type HostData struct {
 
 func GetHost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	data := HostData{models.GetHostAddress(), false}
-	w.Write(libs.JsonData(data))
+	w.Write(utils.JsonData(data))
 }

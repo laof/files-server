@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"files-server/libs"
+	"files-server/utils"
 	"fmt"
 	"io"
 	"net/http"
@@ -53,7 +53,7 @@ func UploadFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		fail := Data{false, 0}
-		f := libs.JsonData(fail)
+		f := utils.JsonData(fail)
 		w.Write(f)
 		return
 	}
@@ -68,6 +68,6 @@ func UploadFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	io.Copy(f, file)
 
 	data := Data{true, file.(Sizer).Size()}
-	s := libs.JsonData(data)
+	s := utils.JsonData(data)
 	w.Write(s)
 }

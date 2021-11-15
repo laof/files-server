@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"files-server/libs"
 	"files-server/models"
+	"files-server/utils"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -15,5 +15,5 @@ type filesInfo struct {
 
 func GetList(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	files := models.GetDirInfo()
-	w.Write(libs.JsonData(filesInfo{files, true}))
+	w.Write(utils.JsonData(filesInfo{files, true}))
 }
