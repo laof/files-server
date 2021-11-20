@@ -1,8 +1,8 @@
 package main
 
 import (
-	"files-server/conf"
-	"files-server/routers"
+	"filesserver/conf"
+	"filesserver/routers"
 	"fmt"
 	"net/http"
 

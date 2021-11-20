@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
-	"files-server/utils"
+	"filesserver/utils"
 	"log"
 	"net/http"
 	"time"

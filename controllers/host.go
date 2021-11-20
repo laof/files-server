@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"files-server/models"
-	"files-server/utils"
+	"filesserver/models"
+	"filesserver/utils"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"

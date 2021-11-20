@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/laof/goport"
 
-	"files-server/conf"
+	"filesserver/conf"
 )
 
 func GetHostAddress() string {

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"files-server/utils"
+	"filesserver/utils"
 	"fmt"
 	"io"
 	"net/http"

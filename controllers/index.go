@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"files-server/models"
+	"filesserver/models"
 	"net/http"
 	"path/filepath"
 	"strings"

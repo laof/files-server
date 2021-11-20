@@ -1,16 +1,19 @@
-module files-server
+module filesserver
 
 go 1.17
 
 require (
+	github.com/gobuffalo/packr/v2 v2.8.1
+	github.com/gorilla/websocket v1.4.2
+	github.com/julienschmidt/httprouter v1.3.0
+	github.com/laof/goport v0.0.1
+)
+
+require (
 	github.com/gobuffalo/logger v1.0.3 // indirect
 	github.com/gobuffalo/packd v1.0.0 // indirect
-	github.com/gobuffalo/packr/v2 v2.8.1 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
-	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/karrick/godirwalk v1.15.8 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
-	github.com/laof/goport v0.0.1 // indirect
 	github.com/markbates/errx v1.1.0 // indirect
 	github.com/markbates/oncer v1.0.0 // indirect
 	github.com/markbates/safe v1.0.1 // indirect

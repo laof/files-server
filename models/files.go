@@ -1,7 +1,7 @@
 package models
 
 import (
-	"files-server/conf"
+	"filesserver/conf"
 	"io/ioutil"
 	"os"
 	"path/filepath"
