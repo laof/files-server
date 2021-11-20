@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
-	"filesserver/utils"
+	"github.com/laof/filesserver/utils"
 	"log"
 	"net/http"
 	"time"

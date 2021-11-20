@@ -1,8 +1,8 @@
 package main
 
 import (
-	"filesserver/conf"
-	"filesserver/routers"
+	"github.com/laof/filesserver/conf"
+	"github.com/laof/filesserver/routers"
 
 	"github.com/julienschmidt/httprouter"
 )

@@ -1,7 +1,7 @@
 package models
 
 import (
-	"filesserver/conf"
+	"github.com/laof/filesserver/conf"
 	"io/ioutil"
 	"os"
 	"path/filepath"

@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"filesserver/conf"
+	"github.com/laof/filesserver/conf"
 
 	"github.com/julienschmidt/httprouter"
 )

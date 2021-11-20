@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"filesserver/utils"
 	"fmt"
+	"github.com/laof/filesserver/utils"
 	"io"
 	"net/http"
 	"os"

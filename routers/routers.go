@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"filesserver/controllers"
+	"github.com/laof/filesserver/controllers"
 
 	"github.com/julienschmidt/httprouter"
 )

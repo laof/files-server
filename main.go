@@ -1,9 +1,9 @@
 package main
 
 import (
-	"filesserver/conf"
-	"filesserver/routers"
 	"fmt"
+	"github.com/laof/filesserver/conf"
+	"github.com/laof/filesserver/routers"
 	"net/http"
 
 	"github.com/laof/goport"

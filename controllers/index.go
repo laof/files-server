@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"filesserver/models"
+	"github.com/laof/filesserver/models"
 	"net/http"
 	"path/filepath"
 	"strings"
