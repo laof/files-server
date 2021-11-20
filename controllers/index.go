@@ -4,9 +4,7 @@ import (
 	"files-server/models"
 	"net/http"
 	"path/filepath"
-	"strconv"
 	"strings"
-	"time"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -19,14 +17,18 @@ func IndexFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 var smap map[string]string
 
-func init() {
-	smap = models.GetStaticMapping()
+func lazyload() {
+	if len(smap) == 0 {
+		smap = models.GetStaticMapping()
+	}
 }
 
 type NotFoundHttpServe struct {
 }
 
 func (h *NotFoundHttpServe) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
+	lazyload()
 
 	path := r.URL.Path
 
@@ -48,16 +50,17 @@ func (h *NotFoundHttpServe) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func Home(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	_, err := r.Cookie("fs")
-	if err != nil {
-		ck := &http.Cookie{
-			Name:     "fs",
-			Value:    strconv.FormatInt(time.Now().UnixNano(), 10),
-			Path:     "/",
-			Secure:   true,
-			HttpOnly: true,
-			MaxAge:   0}
-		http.SetCookie(w, ck)
-	}
+	// _, err := r.Cookie("fs")
+	// if err != nil {
+	// 	ck := &http.Cookie{
+	// 		Name:     "fs",
+	// 		Value:    strconv.FormatInt(time.Now().UnixNano(), 10),
+	// 		Path:     "/",
+	// 		Secure:   true,
+	// 		HttpOnly: true,
+	// 		MaxAge:   0}
+	// 	http.SetCookie(w, ck)
+	// }
+	lazyload()
 	w.Write([]byte(smap["/main.html"]))
 }

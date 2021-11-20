@@ -1,6 +1,7 @@
 package models
 
 import (
+	"files-server/conf"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -14,13 +15,6 @@ type Files struct {
 	Path      string  `json:"path"`
 	Type      string  `json:"type"`
 	Size      int64   `json:"size"`
-}
-
-var rootPath string
-
-func init() {
-	str, _ := os.Getwd()
-	rootPath = filepath.ToSlash(str)
 }
 
 func dirSize(path string) (int64, error) {
@@ -47,7 +41,7 @@ func listDir(dirPth string, fs *Files) (err error) {
 
 		f := Files{
 			[]Files{},
-			path[len(rootPath):],
+			path[len(conf.DirPath):],
 			filepath.Ext(fi.Name()),
 			fi.Name(),
 			path,
@@ -71,7 +65,7 @@ func listDir(dirPth string, fs *Files) (err error) {
 }
 
 func GetDirInfo() *Files {
-	path := rootPath
+	path := conf.DirPath
 
 	f := Files{
 		[]Files{},

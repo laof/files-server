@@ -39,7 +39,6 @@ type RegisterEvent struct {
 }
 
 var talkList []Message = []Message{}
-var userLogin = make(map[string]string)
 
 type Message struct {
 	Text   string    `json:"text"`
@@ -84,11 +83,6 @@ func (h *Hub) run() {
 		}
 	}
 }
-
-// type Event struct {
-// 	Type string `json:"type"`
-// 	Data string `json:"data"`
-// }
 
 type Socket struct{}
 
@@ -137,9 +131,10 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 		c.Close()
 	}()
 
+	var userid = ""
+
 	for {
 
-		cookie := getCookie(r)
 		mt, message, err := c.ReadMessage()
 		if err != nil {
 			break
@@ -148,10 +143,7 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 		e := socket.read(message)
 
 		if e.Type == Sign {
-
-			if userLogin[cookie] == "" {
-				userLogin[cookie] = e.Data
-			}
+			userid = e.Data
 			send = &Client{make(chan []byte), mt, c, e.Data}
 			hub.register <- send
 			continue
@@ -159,7 +151,7 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 
 		mes := Message{
 			e.Data,
-			userLogin[cookie],
+			userid,
 			"message",
 			time.Now()}
 
@@ -168,16 +160,6 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 		hub.broadcast <- mes
 
 	}
-}
-
-func getCookie(r *http.Request) string {
-	c, err := r.Cookie("fs")
-
-	if err != nil {
-		return ""
-	}
-
-	return c.Name + c.Value
 }
 
 type historyDataType struct {
