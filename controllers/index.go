@@ -1,10 +1,12 @@
 package controllers
 
 import (
-	"github.com/laof/filesserver/models"
 	"net/http"
 	"path/filepath"
 	"strings"
+
+	"github.com/laof/filesserver/conf"
+	"github.com/laof/filesserver/models"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -34,7 +36,7 @@ func (h *NotFoundHttpServe) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	if smap[path] == "" {
 
-		http.ServeFile(w, r, filepath.Join("./", path))
+		http.ServeFile(w, r, filepath.Join(conf.DirPath, path))
 
 	} else {
 
