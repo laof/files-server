@@ -6,7 +6,7 @@ require (
 	github.com/gobuffalo/packr/v2 v2.8.2
 	github.com/gorilla/websocket v1.4.2
 	github.com/julienschmidt/httprouter v1.3.0
-	github.com/laof/goport v0.0.1
+	github.com/laof/goport v0.0.2
 )
 
 require (

@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/laof/filesserver/conf"
-	"github.com/laof/filesserver/routers"
+	"net"
 	"net/http"
 
+	"github.com/laof/filesserver/conf"
+	"github.com/laof/filesserver/routers"
 	"github.com/laof/goport"
 )
 
@@ -19,4 +20,28 @@ func main() {
 	if e != nil {
 		fmt.Println("server fail")
 	}
+
+	fmt.Print(GetIP())
+}
+
+func GetIP() string {
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		return ""
+	}
+	for _, addr := range addrs {
+		ipAddr, ok := addr.(*net.IPNet)
+		if !ok {
+			continue
+		}
+		if ipAddr.IP.IsLoopback() {
+			continue
+		}
+		if !ipAddr.IP.IsGlobalUnicast() {
+			continue
+		}
+		return ipAddr.IP.String()
+	}
+	return ""
+
 }
