@@ -39,7 +39,7 @@ jobs:
         branch: main
         clean: false
         force: false
-        commit-message: cicd:deploy filesserver.exe by motuo
+        commit-message: cicd:deploy filesserver.exe by pipeline
 
       
       
