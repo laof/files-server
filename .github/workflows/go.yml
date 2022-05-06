@@ -10,6 +10,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'cicd:')"
     steps:
     - uses: actions/checkout@v3
 
@@ -19,7 +20,29 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -v ./...
+      run: go build -ldflags="-s -w" -o ./build/filesserver.exe main.go
 
-    - name: Test
-      run: go test -v ./...
+    - name: Run UPX
+      uses: crazy-max/ghaction-upx@v1
+      with:
+        version: latest
+        files: |
+          ./build/filesserver.exe
+        args: -fq
+
+    - uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        token: ${{ secrets.CDAPK }}
+        folder: build
+        repository-name: laof/blob
+        target-folder: files
+        branch: main
+        clean: false
+        force: false
+        commit-message: cicd:deploy filesserver.exe by motuo
+
+      
+      
+      
+      
+      
