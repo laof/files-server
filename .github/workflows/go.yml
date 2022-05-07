@@ -51,14 +51,11 @@ jobs:
         name: site
         path: build
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
+    - uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         token: ${{ secrets.CDAPK }}
         folder: build
         repository-name: laof/blob
         target-folder: files/filesserver
         branch: main
-        # clean: false
-        # force: false
-        commit-message: cicd:deploy filesserver.exe by pipeline
+        commit-message: cicd:deploy motuo.apk by motuo
