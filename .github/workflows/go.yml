@@ -30,7 +30,7 @@ jobs:
           ./build/filesserver.exe
         args: -fq
 
-    - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
+    - name: Upload Artifacts 🔺 
       uses: actions/upload-artifact@v3
       with:
         name: filesserver
