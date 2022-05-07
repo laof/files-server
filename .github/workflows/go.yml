@@ -33,7 +33,7 @@ jobs:
     - name: Upload Artifacts 🔺 
       uses: actions/upload-artifact@v3
       with:
-        name: filesserver
+        name: site
         path: build
 
 
@@ -48,7 +48,7 @@ jobs:
     - name: Download Artifacts 🔻 
       uses: actions/download-artifact@v3
       with:
-        name: filesserver
+        name: site
         path: build
 
     - name: Deploy 🚀
