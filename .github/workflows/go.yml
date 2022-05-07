@@ -57,7 +57,7 @@ jobs:
         token: ${{ secrets.CDAPK }}
         folder: build
         repository-name: laof/blob
-        target-folder: filesserver
+        target-folder: files
         branch: main
         clean: false
         force: false
