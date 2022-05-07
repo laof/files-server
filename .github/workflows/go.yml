@@ -33,7 +33,7 @@ jobs:
     - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
       uses: actions/upload-artifact@v3
       with:
-        name: build
+        name: site
         path: build
 
   deploy:
@@ -47,7 +47,7 @@ jobs:
     - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
       uses: actions/download-artifact@v3
       with:
-        name: build
+        name: site
         path: build
 
     - uses: JamesIves/github-pages-deploy-action@v4.3.3
@@ -55,7 +55,8 @@ jobs:
         token: ${{ secrets.CDAPK }}
         folder: build
         repository-name: laof/blob
-        target-folder: files/filesserver
+        target-folder: files
         branch: main
-        clean: true
+        clean: false
+        force: false
         commit-message: cicd:deploy motuo.apk by motuo
