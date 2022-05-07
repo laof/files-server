@@ -30,10 +30,12 @@ jobs:
           ./build/filesserver.exe
         args: -fq
 
-    - name: Install rsync 📚
-      run: |
-        apt-get update && apt-get install -y rsync
 
+  deploy:
+    concurrency: ci-${{ github.ref }}
+    needs: [build] # The second job must depend on the first one to complete before running and uses ubuntu-latest instead of windows.
+    runs-on: ubuntu-latest
+    steps:
     - uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         token: ${{ secrets.CDAPK }}
