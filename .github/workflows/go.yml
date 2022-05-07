@@ -20,21 +20,21 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -ldflags="-s -w" -o ./build1/filesserver111.exe main.go
+      run: go build -ldflags="-s -w" -o ./build/filesserver.exe main.go
 
     - name: Run UPX
       uses: crazy-max/ghaction-upx@v1
       with:
         version: latest
         files: |
-          ./build1/filesserver111.exe
+          ./build/filesserver.exe
         args: -fq
 
     - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
       uses: actions/upload-artifact@v3
       with:
         name: site
-        path: build1
+        path: build
 
 
   deploy:
@@ -49,16 +49,16 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: site
-        path: build1
+        path: build
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         token: ${{ secrets.CDAPK }}
-        folder: build1
+        folder: build
         repository-name: laof/blob
-        target-folder: files
+        target-folder: files/filesserver
         branch: main
-        clean: false
-        force: false
-        commit-message: cicd:deploy filesserver111.exe by pipeline
+        # clean: false
+        # force: false
+        commit-message: cicd:deploy filesserver.exe by pipeline
