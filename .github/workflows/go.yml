@@ -58,4 +58,5 @@ jobs:
         repository-name: laof/blob
         target-folder: files/filesserver
         branch: main
+        clean: true
         commit-message: cicd:deploy motuo.apk by motuo
