@@ -1,4 +1,4 @@
-name: Go #cicd
+name: Go
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
           ./build/filesserver.exe
         args: -fq
 
-    - name: Upload Artifacts 🔺 
+    - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
       uses: actions/upload-artifact@v3
       with:
         name: site
@@ -39,13 +39,13 @@ jobs:
 
   deploy:
     concurrency: ci-${{ github.ref }}
-    needs: [build]
+    needs: [build] # The second job must depend on the first one to complete before running and uses ubuntu-latest instead of windows.
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
       uses: actions/checkout@v3
 
-    - name: Download Artifacts 🔻 
+    - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
       uses: actions/download-artifact@v3
       with:
         name: site
@@ -62,9 +62,3 @@ jobs:
         clean: false
         force: false
         commit-message: cicd:deploy filesserver.exe by pipeline
-
-      
-      
-      
-      
-      
