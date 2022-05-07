@@ -30,6 +30,10 @@ jobs:
           ./build/filesserver.exe
         args: -fq
 
+    - name: Install rsync 📚
+      run: |
+        apt-get update && apt-get install -y rsync
+
     - uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         token: ${{ secrets.CDAPK }}
