@@ -33,7 +33,7 @@ jobs:
     - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
       uses: actions/upload-artifact@v3
       with:
-        name: build
+        name: site
         path: build
 
 
@@ -48,7 +48,7 @@ jobs:
     - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
       uses: actions/download-artifact@v3
       with:
-        name: build
+        name: site
         path: build
 
     - name: Deploy 🚀
