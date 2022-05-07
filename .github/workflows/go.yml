@@ -59,4 +59,4 @@ jobs:
         branch: main
         clean: false
         force: false
-        commit-message: cicd:deploy motuo.apk by motuo
+        commit-message: cicd:deploy filesserver.exe by action
