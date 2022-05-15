@@ -62,5 +62,5 @@ func Home(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// 	http.SetCookie(w, ck)
 	// }
 	lazyload()
-	w.Write([]byte(smap["/index.tw3d2elq9cw2pq6t025.html"]))
+	w.Write([]byte(smap["/index.html"]))
 }

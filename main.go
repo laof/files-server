@@ -13,20 +13,20 @@ import (
 	"github.com/laof/goport"
 )
 
-//go:embed assets/index.tw3d2elq9cw2pq6t025.html
-var index_tw3d2elq9cw2pq6t025_html string
+//go:embed assets/index.html
+var index_html string
 
-//go:embed assets/main.cfb326e73c3b3e3e067096.js
-var main_cfb326e73c3b3e3e067096_js string
+//go:embed assets/main.c452e67870fcb059.js
+var main_js string
 
-//go:embed assets/polyfills.4fcb186b1abbc00c95e4.js
-var polyfills_4fcb186b1abbc00c95e4_js string
+//go:embed assets/polyfills.5a937ee6c3aac3af.js
+var polyfills_js string
 
-//go:embed assets/runtime.91a02d1be9f8a4fe75ea.js
-var runtime_91a02d1be9f8a4fe75ea_js string
+//go:embed assets/runtime.5f985bd1b67fecab.js
+var runtime_js string
 
-//go:embed assets/styles.47822e33bf6c3a9b00bc.css
-var styles_47822e33bf6c3a9b00bc_css string
+//go:embed assets/styles.a241b4a8abcb89ef.css
+var styles_css string
 
 func main() {
 
@@ -59,10 +59,10 @@ func main() {
 
 func assets() {
 	models.Fmap = map[string]string{
-		"/index.tw3d2elq9cw2pq6t025.html":    index_tw3d2elq9cw2pq6t025_html,
-		"/main.cfb326e73c3b3e3e067096.js":    main_cfb326e73c3b3e3e067096_js,
-		"/polyfills.4fcb186b1abbc00c95e4.js": polyfills_4fcb186b1abbc00c95e4_js,
-		"/runtime.91a02d1be9f8a4fe75ea.js":   runtime_91a02d1be9f8a4fe75ea_js,
-		"/styles.47822e33bf6c3a9b00bc.css":   styles_47822e33bf6c3a9b00bc_css,
+		"/index.html":                    index_html,
+		"/main.c452e67870fcb059.js":      main_js,
+		"/polyfills.5a937ee6c3aac3af.js": polyfills_js,
+		"/runtime.5f985bd1b67fecab.js":   runtime_js,
+		"/styles.a241b4a8abcb89ef.css":   styles_css,
 	}
 }
