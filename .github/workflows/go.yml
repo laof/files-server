@@ -20,14 +20,14 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -ldflags="-s -w" -o ./build/filesserver.exe main.go
+      run: go build -ldflags="-s -w" -o ./build/fs.exe main.go
 
     - name: Run UPX
       uses: crazy-max/ghaction-upx@v1
       with:
         version: latest
         files: |
-          ./build/filesserver.exe
+          ./build/fs.exe
         args: -fq
 
     - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
@@ -59,4 +59,4 @@ jobs:
         branch: main
         clean: false
         force: false
-        commit-message: cicd:deploy filesserver.exe by action
+        commit-message: cicd:deploy fs.exe by action
