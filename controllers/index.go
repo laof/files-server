@@ -5,16 +5,14 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/julienschmidt/httprouter"
 	"github.com/laof/filesserver/conf"
 	"github.com/laof/filesserver/models"
-
-	"github.com/julienschmidt/httprouter"
 )
 
 func IndexFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// http.ServeFile(w, r, filepath.Join("./", path))
-	http.ServeFile(w, r, filepath.Join("./", "index.html"))
-
+	// http.ServeFile(w, r, filepath.Join(conf.DirPath, r.URL.Path))
 }
 
 var smap map[string]string
@@ -64,5 +62,5 @@ func Home(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// 	http.SetCookie(w, ck)
 	// }
 	lazyload()
-	w.Write([]byte(smap["/main.html"]))
+	w.Write([]byte(smap["/index.tw3d2elq9cw2pq6t025.html"]))
 }
