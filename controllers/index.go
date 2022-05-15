@@ -21,7 +21,7 @@ var smap map[string]string
 
 func lazyload() {
 	if len(smap) == 0 {
-		smap = models.GetStaticMapping()
+		smap = models.Fmap
 	}
 }
 
