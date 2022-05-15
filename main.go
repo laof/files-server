@@ -4,6 +4,8 @@ import (
 	_ "embed"
 	"fmt"
 	"net/http"
+	"os"
+	"strconv"
 
 	"github.com/laof/filesserver/conf"
 	"github.com/laof/filesserver/models"
@@ -20,7 +22,6 @@ var main_cfb326e733b33e067096_js string
 //go:embed assets/polyfills.4fcb186b1abbc00c95e4.js
 var polyfills_4fcb186b1abbc00c95e4_js string
 
-//
 //go:embed assets/runtime.91a02d1be9f8a4fe75ea.js
 var runtime_91a02d1be9f8a4fe75ea_js string
 
@@ -28,8 +29,25 @@ var runtime_91a02d1be9f8a4fe75ea_js string
 var styles_47822e33bf6c3a9b00bc_css string
 
 func main() {
+
+	port := 6200
+	args := os.Args
+
+	if len(args) > 1 {
+		inp := args[1]
+		n, e := strconv.Atoi(inp)
+		if e == nil {
+			if n >= 2000 && n <= 49152 {
+				port = n
+			} else {
+				fmt.Print("input error:  >= 2000 && <= 49152")
+				return
+			}
+		}
+	}
+
 	assets()
-	conf.Port = goport.InputPort(conf.Port)
+	conf.Port = goport.InputPort(strconv.Itoa(port))
 	r := routers.Router()
 
 	e := http.ListenAndServe(":"+conf.Port, r)

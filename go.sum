@@ -2,5 +2,5 @@ github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0U
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/julienschmidt/httprouter v1.3.0 h1:U0609e9tgbseu3rBINet9P48AI/D3oJs4dN7jwJOQ1U=
 github.com/julienschmidt/httprouter v1.3.0/go.mod h1:JR6WtHb+2LUe8TCKY3cZOxFyyO8IZAc4RVcycCCAKdM=
-github.com/laof/goport v0.0.2 h1:DEx8h+m0OxBMt7yHFtP9bnhwYyoyApicxWHJiapMBzs=
-github.com/laof/goport v0.0.2/go.mod h1:UZjCb0mkmxiWs7O/+gpQ1Ay8mnKXhJI15hJwHt/2Bfc=
+github.com/laof/goport v0.0.3 h1:8u7oofyaCiQHPkHPD7asgE4gAEIZGAayatwO3UA21nQ=
+github.com/laof/goport v0.0.3/go.mod h1:UZjCb0mkmxiWs7O/+gpQ1Ay8mnKXhJI15hJwHt/2Bfc=
