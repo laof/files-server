@@ -1,3 +1,7 @@
-build/
-filesserver.exe
+# exe
 fs.exe
+filesserver.exe
+
+
+# output
+build/
