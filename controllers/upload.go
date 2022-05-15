@@ -2,12 +2,13 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/laof/filesserver/utils"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
+
+	"github.com/laof/filesserver/utils"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -21,7 +22,7 @@ type Data struct {
 	Size    int64 `json:"size"`
 }
 
-func pathExists(path string) bool {
+func fileExists(path string) bool {
 	_, err := os.Stat(path)
 	return err == nil
 }
@@ -38,7 +39,7 @@ func smartName(dirPath string, filename string, i int) string {
 		path = pre + strconv.Itoa(i) + ext
 	}
 
-	if pathExists(filepath.Join(dirPath, path)) {
+	if fileExists(filepath.Join(dirPath, path)) {
 		return smartName(dirPath, filename, i+1)
 	} else {
 		return path
@@ -67,7 +68,7 @@ func UploadFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	defer f.Close()
 	io.Copy(f, file)
 
-	data := Data{true, file.(Sizer).Size()}
+	data := Data{true, handler.Size}
 	s := utils.JsonData(data)
 	w.Write(s)
 }
