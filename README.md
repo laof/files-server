@@ -1,8 +1,6 @@
 #### go filesserver
 
-![image](https://laof.github.io/img/sf/cmd.png)
-![image](https://laof.github.io/img/sf/chrome.png)
-![image](https://laof.github.io/img/sf/phone.jpg)
+![image](https://laof.github.io/img/sf/fs.png)
 
 ```javascript
    http://localhost:6200
