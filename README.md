@@ -1,5 +1,9 @@
 #### go filesserver
 
+![image](https://laof.github.io/img/sf/cmd.png)
+![image](https://laof.github.io/img/sf/chrome.png)
+![image](https://laof.github.io/img/sf/phone.jpg)
+
 ```javascript
    http://localhost:6200
    http://192.168.1.56:6200
@@ -21,6 +25,4 @@ or add the file's directory to Path environment variable
 #### download
 [fs.exe](https://laof.github.io/blob/files/fs.exe) (2.1M)
 
-![image](https://laof.github.io/img/sf/cmd.png)
-![image](https://laof.github.io/img/sf/chrome.png)
-![image](https://laof.github.io/img/sf/phone.jpg)
+
