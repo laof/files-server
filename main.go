@@ -16,13 +16,13 @@ import (
 //go:embed assets/index.html
 var index_html string
 
-//go:embed assets/main.c452e67870fcb059.js
+//go:embed assets/main.7b900f1b2c601e51.js
 var main_js string
 
-//go:embed assets/polyfills.5a937ee6c3aac3af.js
+//go:embed assets/polyfills.1b42a168c772535f.js
 var polyfills_js string
 
-//go:embed assets/runtime.5f985bd1b67fecab.js
+//go:embed assets/runtime.3989356f74c4e649.js
 var runtime_js string
 
 //go:embed assets/styles.a241b4a8abcb89ef.css
@@ -60,9 +60,9 @@ func main() {
 func assets() {
 	models.Fmap = map[string]string{
 		"/index.html":                    index_html,
-		"/main.c452e67870fcb059.js":      main_js,
-		"/polyfills.5a937ee6c3aac3af.js": polyfills_js,
-		"/runtime.5f985bd1b67fecab.js":   runtime_js,
+		"/main.7b900f1b2c601e51.js":      main_js,
+		"/polyfills.1b42a168c772535f.js": polyfills_js,
+		"/runtime.3989356f74c4e649.js":   runtime_js,
 		"/styles.a241b4a8abcb89ef.css":   styles_css,
 	}
 }
