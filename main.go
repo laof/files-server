@@ -16,6 +16,9 @@ import (
 //go:embed assets/index.html
 var index_html string
 
+//go:embed assets/ico.d6jo8a5r9k.svg
+var ico_svg string
+
 //go:embed assets/main.7b900f1b2c601e51.js
 var main_js string
 
@@ -59,6 +62,7 @@ func main() {
 func init() {
 	models.Fmap = map[string]string{
 		"/index.html":                    index_html,
+		"/ico.d6jo8a5r9k.svg":            ico_svg,
 		"/main.7b900f1b2c601e51.js":      main_js,
 		"/polyfills.1b42a168c772535f.js": polyfills_js,
 		"/runtime.3989356f74c4e649.js":   runtime_js,
