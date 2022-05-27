@@ -19,13 +19,13 @@ var index_html string
 //go:embed assets/ico.d6jo8a5r9k.svg
 var ico_svg string
 
-//go:embed assets/main.7b900f1b2c601e51.js
+//go:embed assets/main.771b0e1f5c7ff2f5.js
 var main_js string
 
-//go:embed assets/polyfills.1b42a168c772535f.js
+//go:embed assets/polyfills.4ceba69a5f6f91c3.js
 var polyfills_js string
 
-//go:embed assets/runtime.3989356f74c4e649.js
+//go:embed assets/runtime.1a1bb1bd7fe02d90.js
 var runtime_js string
 
 //go:embed assets/styles.a241b4a8abcb89ef.css
@@ -63,9 +63,9 @@ func init() {
 	models.Fmap = map[string]string{
 		"/index.html":                    index_html,
 		"/ico.d6jo8a5r9k.svg":            ico_svg,
-		"/main.7b900f1b2c601e51.js":      main_js,
-		"/polyfills.1b42a168c772535f.js": polyfills_js,
-		"/runtime.3989356f74c4e649.js":   runtime_js,
+		"/main.771b0e1f5c7ff2f5.js":      main_js,
+		"/polyfills.4ceba69a5f6f91c3.js": polyfills_js,
+		"/runtime.1a1bb1bd7fe02d90.js":   runtime_js,
 		"/styles.a241b4a8abcb89ef.css":   styles_css,
 	}
 }
