@@ -46,7 +46,6 @@ func main() {
 		}
 	}
 
-	assets()
 	conf.Port = goport.InputPort(strconv.Itoa(port))
 	r := routers.Router()
 
@@ -57,7 +56,7 @@ func main() {
 	}
 }
 
-func assets() {
+func init() {
 	models.Fmap = map[string]string{
 		"/index.html":                    index_html,
 		"/main.7b900f1b2c601e51.js":      main_js,
