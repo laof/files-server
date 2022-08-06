@@ -1,4 +1,4 @@
-module github.com/laof/filesserver
+module github.com/laof/fs
 
 go 1.17
 
