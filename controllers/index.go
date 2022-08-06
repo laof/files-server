@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/laof/filesserver/conf"
-	"github.com/laof/filesserver/models"
+	"github.com/laof/fs/conf"
+	"github.com/laof/fs/models"
 )
 
 func IndexFiles(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {

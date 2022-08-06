@@ -2,10 +2,11 @@ package controllers
 
 import (
 	"encoding/json"
-	"github.com/laof/filesserver/utils"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/laof/fs/utils"
 
 	"github.com/gorilla/websocket"
 	"github.com/julienschmidt/httprouter"

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/laof/filesserver/utils"
+	"github.com/laof/fs/utils"
 
 	"github.com/julienschmidt/httprouter"
 )

@@ -1,9 +1,10 @@
 package controllers
 
 import (
-	"github.com/laof/filesserver/models"
-	"github.com/laof/filesserver/utils"
 	"net/http"
+
+	"github.com/laof/fs/models"
+	"github.com/laof/fs/utils"
 
 	"github.com/julienschmidt/httprouter"
 )

@@ -7,9 +7,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/laof/filesserver/conf"
-	"github.com/laof/filesserver/models"
-	"github.com/laof/filesserver/routers"
+	"github.com/laof/fs/conf"
+	"github.com/laof/fs/models"
+	"github.com/laof/fs/routers"
 	"github.com/laof/goport"
 )
 
