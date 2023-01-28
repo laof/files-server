@@ -3,9 +3,13 @@ package models
 import (
 	"github.com/laof/goport"
 
-	"github.com/laof/filesserver/conf"
+	"github.com/laof/fs/conf"
 )
 
 func GetHostAddress() string {
-	return "http://" + goport.GetIP() + ":" + conf.Port
+	ip := ""
+	if ips := goport.GetIP(); len(ips) > 0 {
+		ip = ips[0]
+	}
+	return "http://" + ip + ":" + conf.Port
 }

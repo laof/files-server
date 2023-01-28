@@ -1,10 +1,11 @@
 package models
 
 import (
-	"github.com/laof/filesserver/conf"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+
+	"github.com/laof/fs/conf"
 )
 
 type Files struct {
