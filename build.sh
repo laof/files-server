@@ -1,6 +1,6 @@
 #!/bin/bash
 
-go build fs
+go build -o fs
 chmod 777 fs
 chmod +x fs
 mv -fb fs ../public/
