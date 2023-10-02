@@ -9,8 +9,8 @@ import (
 	"os/exec"
 	"runtime"
 	"strconv"
+	"time"
 
-	"github.com/AlecAivazis/survey/v2"
 	"github.com/laof/fs/api"
 	"github.com/laof/fs/conf"
 	"github.com/laof/fs/models"
@@ -57,15 +57,8 @@ func main() {
 	r := api.Router()
 
 	go (func() {
-		yes := false
-		prompt := &survey.Confirm{
-			Message: "Do you want to open browser?",
-		}
-		survey.AskOne(prompt, &yes)
-
-		if yes {
-			openbrowser("http://localhost:" + strconv.Itoa(port))
-		}
+		time.Sleep(time.Second * 1)
+		openbrowser("http://localhost:" + strconv.Itoa(port))
 	})()
 
 	e := http.ListenAndServe(":"+conf.Port, r)
