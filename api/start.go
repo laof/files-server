@@ -1,4 +1,4 @@
-package routers
+package api
 
 import (
 	"github.com/laof/fs/conf"

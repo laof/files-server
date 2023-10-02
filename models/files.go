@@ -1,7 +1,6 @@
 package models
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -31,23 +30,24 @@ func dirSize(path string) (int64, error) {
 
 func listDir(dirPth string, fs *Files) (err error) {
 
-	dir, err := ioutil.ReadDir(dirPth)
+	dir, err := os.ReadDir(dirPth)
 	if err != nil {
 		return err
 	}
 	PthSep := string(os.PathSeparator)
 	for _, fi := range dir {
+		fileInfo, _ := fi.Info()
 
-		path := filepath.ToSlash(dirPth + PthSep + fi.Name())
+		path := filepath.ToSlash(dirPth + PthSep + fileInfo.Name())
 
 		f := Files{
 			[]Files{},
 			path[len(conf.DirPath):],
-			filepath.Ext(fi.Name()),
-			fi.Name(),
+			filepath.Ext(fileInfo.Name()),
+			fileInfo.Name(),
 			path,
-			fi.Name(),
-			fi.Size()}
+			fileInfo.Name(),
+			fileInfo.Size()}
 
 		if fi.IsDir() {
 			f.Type = "directory"

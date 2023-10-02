@@ -3,13 +3,17 @@ package main
 import (
 	_ "embed"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
+	"os/exec"
+	"runtime"
 	"strconv"
 
+	"github.com/AlecAivazis/survey/v2"
+	"github.com/laof/fs/api"
 	"github.com/laof/fs/conf"
 	"github.com/laof/fs/models"
-	"github.com/laof/fs/routers"
 	"github.com/laof/goport"
 )
 
@@ -50,7 +54,17 @@ func main() {
 	}
 
 	conf.Port = goport.InputPort(strconv.Itoa(port))
-	r := routers.Router()
+	r := api.Router()
+
+	yes := false
+	prompt := &survey.Confirm{
+		Message: "Do you want to open browser?",
+	}
+	survey.AskOne(prompt, &yes)
+
+	if yes {
+		openbrowser("http://localhost:" + strconv.Itoa(port))
+	}
 
 	e := http.ListenAndServe(":"+conf.Port, r)
 
@@ -68,4 +82,23 @@ func init() {
 		"/runtime.1a1bb1bd7fe02d90.js":   runtime_js,
 		"/styles.a241b4a8abcb89ef.css":   styles_css,
 	}
+}
+
+func openbrowser(url string) {
+	var err error
+
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", url).Start()
+	case "windows":
+		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
+	case "darwin":
+		err = exec.Command("open", url).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
