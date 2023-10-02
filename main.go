@@ -56,15 +56,17 @@ func main() {
 	conf.Port = goport.InputPort(strconv.Itoa(port))
 	r := api.Router()
 
-	yes := false
-	prompt := &survey.Confirm{
-		Message: "Do you want to open browser?",
-	}
-	survey.AskOne(prompt, &yes)
+	go (func() {
+		yes := false
+		prompt := &survey.Confirm{
+			Message: "Do you want to open browser?",
+		}
+		survey.AskOne(prompt, &yes)
 
-	if yes {
-		openbrowser("http://localhost:" + strconv.Itoa(port))
-	}
+		if yes {
+			openbrowser("http://localhost:" + strconv.Itoa(port))
+		}
+	})()
 
 	e := http.ListenAndServe(":"+conf.Port, r)
 
