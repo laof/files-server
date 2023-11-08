@@ -80,11 +80,16 @@ func init() {
 }
 
 func openbrowser(url string) {
-	var err error
 
+	// go func() {
+	// 	recover()
+	// }()
+
+	var err error
 	switch runtime.GOOS {
 	case "linux":
-		err = exec.Command("xdg-open", url).Start()
+		// err = exec.Command("xdg-open", url).Start()
+		fmt.Println("linux ....")
 	case "windows":
 		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
 	case "darwin":
