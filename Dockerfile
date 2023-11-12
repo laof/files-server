@@ -1,6 +1,9 @@
 FROM golang:1.21-alpine3.18 AS builder
 WORKDIR /app
 ADD . .
+
+ENV GOPROXY=https://goproxy.cn
+
 RUN go build -o main .
 
 FROM alpine:latest
